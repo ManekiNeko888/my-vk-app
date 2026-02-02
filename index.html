@@ -34,8 +34,10 @@
     <button id="btn">Узнать мой ID</button>
 
     <script>
-        // 1. Инициализируем VK Bridge
-        vkBridge.send('VKWebAppInit');
+        // Команда должна быть ПЕРВОЙ в скрипте
+vkBridge.send('VKWebAppInit').then(() => console.log('ВК нас видит!')).catch(err => console.error('Ошибка связи с ВК:', err));
+        
+
 
         const btn = document.getElementById('btn');
 
