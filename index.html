@@ -1,4 +1,58 @@
-<script src="https://unpkg.com"></script>
-<script>
-  vkBridge.send('VKWebAppInit');
-</script>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моё Mini App</title>
+    <!-- Подключаем библиотеку VK Bridge -->
+    <script src="https://unpkg.com"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            background-color: #0077ff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Привет!</h1>
+    <button id="btn">Узнать мой ID</button>
+
+    <script>
+        // 1. Инициализируем VK Bridge
+        vkBridge.send('VKWebAppInit');
+
+        const btn = document.getElementById('btn');
+
+        // 2. Вешаем событие на кнопку
+        btn.addEventListener('click', () => {
+            // Запрашиваем данные пользователя
+            vkBridge.send('VKWebAppGetUserInfo')
+                .then((data) => {
+                    if (data.id) {
+                        alert('Твой ID в ВК: ' + data.id);
+                    }
+                })
+                .catch((error) => {
+                    console.log('Ошибка:', error);
+                });
+        });
+    </script>
+</body>
+</html>
+
