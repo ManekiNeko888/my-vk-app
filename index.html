@@ -31,12 +31,14 @@
 <body>
 <h2>Разработчик Соня Тритапир</h2>
     <p>Адрес страницы<input type="text" placeholder="Введите адрес страницы"></p>
-<label>
-  <input type="radio" name="choice" value="yes"> Да
-</label>
-<label>
-  <input type="radio" name="choice" value="no"> Нет
-</label>
+<div class="radio-group">
+  <input type="radio" name="option" id="btn1" checked>
+  <label for="btn1">Первый вариант</label>
+
+  <input type="radio" name="option" id="btn2">
+  <label for="btn2">Второй вариант</label>
+</div>
+
     
     <h1>Колличество подписчиков</h1>
     <button id="btn">Узнать мой ID</button>
