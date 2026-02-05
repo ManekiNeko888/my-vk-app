@@ -26,6 +26,28 @@
             border-radius: 10px;
             cursor: pointer;
         }
+        /* Скрываем стандартный кружок */
+input[type="radio"] {
+  display: none;
+}
+
+/* Оформляем label как кнопку */
+label {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Меняем стиль при выборе */
+input[type="radio"]:checked + label {
+  background: #007bff;
+  color: white;
+  border-color: #0056b3;
+        }
+            
     </style>
 </head>
 <body>
